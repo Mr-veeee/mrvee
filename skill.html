@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="index.css">
+    <title>Skills</title>
+    <style>
+        .skill-logo {
+            width: 70px;
+            height: 70px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-logo:hover {
+            transform: scale(1.2);
+        }
+
+        .skill-bar {
+            width: 100%;
+            background-color: #ddd;
+            margin-top: 10px;
+        }
+
+        .skill-level {
+            width: 0;
+            height: 20px;
+            background-color: #4caf50;
+            text-align: right;
+            padding-right: 10px;
+            color: white;
+            transition: width 2s;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <div class="page-header">
+            <div class="logo">
+                <a href="#">Logo.</a>
+            </div>
+            <input type="checkbox" id="click">
+
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </label>
+            <ul>
+                <li><a href="index.html" style="--navAni:1">Home</a></li>
+                <li><a href="#" style="--navAni:2">About</a></li>
+                <li><a href="skill.html" class="active" style="--navAni:3">Skills</a></li>
+                <li><a href="projects.html" style="--navAni:4">Portfolio</a></li>
+                <li><a href="#" style="--navAni:5">Contact</a></li>
+            </ul>
+            <label class="mode">
+                <input type="checkbox" id="darkModeToggle">
+                <i class='bx bxs-moon'></i>
+            </label>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="main">
+            <div class="detail">
+                <h3>My Skills</h3>
+                <ul>
+                    <li>
+                        <img src="html.png" alt="HTML logo" class="skill-logo">
+                        <h4>HTML</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 0%">★★★★☆</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="css.png" alt="CSS logo" class="skill-logo">
+                        <h4>CSS</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 0%">★★★★☆</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="javascript.png" alt="JavaScript logo" class="skill-logo">
+                        <h4>JavaScript</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 0%">★★★☆☆</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="sql.png" alt="SQL logo" class="skill-logo">
+                        <h4>SQL</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 0%">★★★☆☆</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="python.png" alt="Python logo" class="skill-logo">
+                        <h4>Python</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 0%">★★★☆☆</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.onload = function() {
+            var skillLevels = document.getElementsByClassName('skill-level');
+            for (var i = 0; i < skillLevels.length; i++) {
+                var skillLevel = skillLevels[i];
+                skillLevel.style.width = skillLevel.textContent.length * 20 + '%';
+            }
+
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+            const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+            }
+            darkModeToggle.addEventListener('change', () => {
+                if (darkModeToggle.checked) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

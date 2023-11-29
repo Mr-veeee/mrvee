@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="index.css">
+    <title>Contact</title>
+    <link rel="icon" href="profile.png" sizes="192x192" />
+</head>
+
+<body>
+    <header class="container">
+        <div class="page-header">
+            <div class="Mr.Vee">
+                <img src="Profilea.png" alt="Mr.Vee" style="width:100px;height:70px;">
+            </div>
+            <input type="checkbox" id="click">
+
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </label>
+            <ul>
+                <li><a href="index.html" style="--navAni:1">Home</a></li>
+                <li><a href="skills.html" style="--navAni:2">Skills</a></li>
+                <li><a href="projects.html" style="--navAni:3">Portfolio</a></li>
+                <li><a href="contact.html" class="active" style="--navAni:4">Contact</a></li>
+            </ul>
+            <label class="mode">
+                <input type="checkbox" id="darkModeToggle">
+                <i class='bx bxs-moon'></i>
+            </label>
+        </div>
+    </header>
+
+
+    <section class="container">
+        <div class="main">
+            <div class="images">
+                <img src="contact.png" alt="" class="img-w">
+                <span class="bg-effect-1">
+                <span class="bg-effect-1"></span>
+
+                </span>
+            </div>
+            <div class="detail">
+                <h3>Contact Me</h3>
+                <h1><span style="color:#f9532d;">Mr.</span>Vee</h1> 
+                <p>If you have any questions or would like to discuss a project, feel free to reach out to me.</p>  
+                <p>Email: <a href="mailto:guttulavenkatesh6@gmail.com"><i class='bx bxs-envelope'></i> guttulavenkatesh6@gmail.com</a></p>
+                <p>Phone: <a href="tel:+919505424212"><i class='bx bxs-phone'></i> +91 9505424212</a></p>
+                <p>WhatsApp: <a href="https://wa.me/919505424212"><i class='bx bxl-whatsapp'></i> Chat on WhatsApp</a></p>
+            </div>
+        </div>
+    </section>
+    <script>
+        window.onload = function() {
+            var skillLevels = document.getElementsByClassName('skill-level');
+            for (var i = 0; i < skillLevels.length; i++) {
+                var skillLevel = skillLevels[i];
+                skillLevel.style.width = skillLevel.textContent.length * 20 + '%';
+            }
+
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+            const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+            }
+            darkModeToggle.addEventListener('change', () => {
+                if (darkModeToggle.checked) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>
