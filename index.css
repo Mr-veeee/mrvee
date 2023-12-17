@@ -312,7 +312,12 @@ li a:hover {
         padding: 0 1.6rem;
     }
 }
-
+@media (max-width: 600px) {
+  .skills, .internships {
+    overflow-y: scroll;
+    max-height: 200px;
+  }
+}
 @media screen and (max-width:600px) {
     body {
         height: auto;
